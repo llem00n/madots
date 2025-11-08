@@ -24,9 +24,8 @@
         "tray",
     ],
     "hyprland/language" : {
-      "format": "{long}",
-      "format-en": "us",
-      "format-uk": "uk",
+      "format": "{short}",
+      "keyboard-name": "logitech-wireless-keyboard-pid:4075"
     },
     "tray": {
         // "icon-size": 21,
@@ -89,9 +88,9 @@
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon} {format_source}",
-        "format-bluetooth": "{volume}% {icon}  {format_source}",
-        "format-bluetooth-muted": "  {icon}  {format_source}",
+        "format": "{volume}% {icon}  {format_source}",
+        "format-bluetooth": "{volume}% {icon}   {format_source}",
+        "format-bluetooth-muted": "  {icon}   {format_source}",
         "format-muted": "  {format_source}",
         "format-source": "{volume}% ",
         "format-source-muted": "",
