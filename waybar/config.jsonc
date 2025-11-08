@@ -15,17 +15,16 @@
     "modules-right": [
         "pulseaudio",
         "network",
+        "battery",
         "cpu",
-        "memory",
         "temperature",
-        "backlight",
+        "memory",
         "hyprland/language",
         "clock",
         "tray",
     ],
     "hyprland/language" : {
-      "format": "{short}",
-      "keyboard-name": "logitech-wireless-keyboard-pid:4075"
+      "format": "{short}"
     },
     "tray": {
         // "icon-size": 21,
@@ -43,66 +42,43 @@
         "format-alt": "{:%Y-%m-%d}"
     },
     "cpu": {
-        "format": "{usage}% ",
+        "format": "cpu: {usage}%",
         "tooltip": false
     },
     "memory": {
-        "format": "{}% "
+        "format": "mem: {}%"
     },
     "temperature": {
-        // "thermal-zone": 2,
-        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
         "critical-threshold": 80,
-        // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
-        "format-icons": ["", "", ""]
-    },
-    "backlight": {
-        // "device": "acpi_video1",
-        "format": "{percent}% {icon}",
-        "format-icons": ["", "", "", "", "", "", "", "", ""]
+        "format-critical": "temp: {temperatureC}°C CRITICAL",
+        "format": "temp: {temperatureC}°C",
     },
     "battery": {
         "states": {
-            // "good": 95,
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
-        "format-full": "{capacity}% {icon}",
-        "format-charging": "{capacity}% ",
-        "format-plugged": "{capacity}% ",
-        "format-alt": "{time} {icon}",
-        // "format-good": "", // An empty format will hide the module
-        // "format-full": "",
-        "format-icons": ["", "", "", "", ""]
+        "format": "bat: {capacity}%",
+        "format-charging": "bat: {capacity}%++",
+        "format-plugged": "bat: {capacity}%+-",
+        "format-full": "",
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "{signalStrength}% ",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
+        "format-wifi": "wifi: {signalStrength}%",
+        "format-ethernet": "eth: {ipaddr}/{cidr}",
+        "tooltip-format": "{ifname} via {gwaddr}",
+        "format-linked": "wifi: {ifname} (No IP)",
+        "format-disconnected": "offline",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "{volume}% {icon}  {format_source}",
-        "format-bluetooth": "{volume}% {icon}   {format_source}",
-        "format-bluetooth-muted": "  {icon}   {format_source}",
-        "format-muted": "  {format_source}",
-        "format-source": "{volume}% ",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["", "", ""]
-        },
+        "format": "vol: {volume}% {format_source}",
+        "format-bluetooth": "vol: {volume}%-bt {format_source}",
+        "format-bluetooth-muted": "sh-bt {format_source}",
+        "format-source": "| mic: {volume}%",
         "on-click": "pavucontrol"
     }
 }
