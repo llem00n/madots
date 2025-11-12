@@ -24,7 +24,8 @@
         "tray",
     ],
     "hyprland/language" : {
-      "format": "{short}"
+      "format": "{short}",
+      "min-length": 2
     },
     "tray": {
         // "icon-size": 21,
@@ -79,6 +80,6 @@
         "format-bluetooth": "vol: {volume}%-bt {format_source}",
         "format-bluetooth-muted": "sh-bt {format_source}",
         "format-source": "| mic: {volume}%",
-        "on-click": "pavucontrol"
+        "on-click": "kitty --class floating-control sh -c 'pulsemixer'"
     }
 }

@@ -25,3 +25,4 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source /usr/share/nvm/init-nvm.sh
+export PATH="/home/alex/.local/share/gem/ruby/3.4.0/bin/:$PATH"
