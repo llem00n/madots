@@ -4,4 +4,4 @@ run = 'shell -- dragon-drop -x -i -T "$0"'
 
 [[mgr.prepend_keymap]]
 on  = "<C-.>"
-run = 'shell "kitty @ launch --type=tab --cwd=$PWD"'
+run = "shell 'kitty @ launch --type=tab --cwd=\"$PWD\"'"

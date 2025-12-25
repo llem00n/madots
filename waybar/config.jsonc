@@ -2,10 +2,7 @@
 {
     // "layer": "top", // Waybar at top layer
     "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 30, // Waybar height (to be removed for auto height)
-    // "width": 1280, // Waybar width
-    "spacing": 4, // Gaps between modules (4px)
-    // Choose the order of the modules
+    "height": 34, // Waybar height (to be removed for auto height)
     "modules-left": [
         "hyprland/workspaces",
     ],
@@ -15,8 +12,8 @@
         "network",
         "battery",
         "cpu",
-        "temperature",
         "memory",
+        "temperature",
         "hyprland/language",
         "clock",
         "tray",
@@ -26,7 +23,7 @@
       "min-length": 2
     },
     "tray": {
-        // "icon-size": 21,
+        "icon-size": 14,
         "spacing": 10,
         // "icons": {
         //   "blueman": "bluetooth",
@@ -36,48 +33,60 @@
     "clock": {
         // "timezone": "America/New_York",
         "interval": 1,
-        "format": "{:%H:%M:%S}",
+        "format": "{:%I:%M:%S %p}",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
+        "format-alt": "󰃭 {:%Y-%m-%d}"
     },
     "cpu": {
-        "format": "cpu: {usage}%",
+        "format": "󰍛 {usage}%",
         "tooltip": false
     },
     "memory": {
-        "format": "mem: {}%"
+        "format": "⌗ {}%"
     },
     "temperature": {
         "hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
         "critical-threshold": 80,
-        "format-critical": "temp: {temperatureC}°C CRITICAL",
-        "format": "temp: {temperatureC}°C",
+        "format-critical": "󰔏 {temperatureC}°C",
+        "format": "󱃃 {temperatureC}°C",
     },
     "battery": {
         "states": {
             "warning": 30,
             "critical": 15
         },
-        "format": "bat: {capacity}%",
-        "format-charging": "bat: {capacity}%++",
-        "format-plugged": "bat: {capacity}%+-",
-        "format-full": "",
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-full": "󰁹 {capacity}%",
+        "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "wifi: {signalStrength}%",
-        "format-ethernet": "eth: {ipaddr}/{cidr}",
+        "format-wifi": "󰖩 {signalStrength}%",
+        "format-ethernet": "󰈀 {ipaddr}/{cidr}",
         "tooltip-format": "{ifname} via {gwaddr}",
-        "format-linked": "wifi: {ifname} (No IP)",
-        "format-disconnected": "offline",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        "format-linked": "󰖪 {ifname} (No IP)",
+        "format-disconnected": "󰖪 Disconnected",
+        "on-click": "kitty --class floating-control sh -c wifitui"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
-        "format": "vol: {volume}% {format_source}",
-        "format-bluetooth": "vol: {volume}%-bt {format_source}",
-        "format-bluetooth-muted": "sh-bt {format_source}",
-        "format-source": "| mic: {volume}%",
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": "{icon} {volume}% {format_source}",
+        "format-bluetooth-muted": "󰂲 {format_source}",
+        "format-muted": "󰖁 {format_source}",
+        "format-source": "󰍬 {volume}%",
+        "format-source-muted": "󰍭",
+        "format-icons": {
+            "headphone": "󰋋",
+            "hands-free": "󰋎",
+            "headset": "󰋎",
+            "phone": "󰄜",
+            "portable": "󰄜",
+            "car": "󰄋",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
         "on-click": "kitty --class floating-control sh -c 'pulsemixer'"
     }
 }

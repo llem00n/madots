@@ -26,3 +26,7 @@ source ~/powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 source /usr/share/nvm/init-nvm.sh
 export PATH="/home/alex/.local/share/gem/ruby/3.4.0/bin/:$PATH"
+
+
+# Load Angular CLI autocompletion.
+source <(ng completion script)
